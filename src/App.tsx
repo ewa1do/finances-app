@@ -21,7 +21,13 @@ function App() {
         <BrowserRouter>
             <Routes>
                 {routes.map((route) => {
-                    return <Route path={route.path} element={route.element} />;
+                    return (
+                        <Route
+                            key={`route_${route.path}`}
+                            path={route.path}
+                            element={route.element}
+                        />
+                    );
                 })}
             </Routes>
         </BrowserRouter>
