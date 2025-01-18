@@ -1,3 +1,9 @@
+import Table from "./Table";
+
 export default function Ledger() {
-    return <h1>Ledger</h1>;
+    return (
+        <div className="w-full">
+            <Table />
+        </div>
+    );
 }

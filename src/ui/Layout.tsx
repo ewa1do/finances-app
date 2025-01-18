@@ -9,7 +9,7 @@ interface Props {
 
 export default function Layout({ routes }: Props) {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col p-3">
             <Navbar />
 
             <div className="flex">
@@ -21,8 +21,8 @@ export default function Layout({ routes }: Props) {
                     ))}
                 </Sidebar>
 
-                <div className="hero min-h-screen">
-                    <div className="hero-content">
+                <div className="px-3 w-11/12">
+                    <div className="">
                         <Routes>
                             {routes.map((route) => {
                                 return (
