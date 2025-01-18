@@ -5,7 +5,7 @@ export default function Dashboard() {
     return (
         <>
             <section>
-                <div className="mb-10">Bienvenido, Jesus</div>
+                <div className="mb-10 text-3xl">Bienvenido, Jesus</div>
             </section>
 
             <section className="flex justify-evenly text-neutral-700 p-5 mb-20">
