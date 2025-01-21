@@ -16,7 +16,7 @@ export default function Layout({ routes }: Props) {
         <div className="flex flex-col p-3">
             <Navbar />
 
-            <div className="flex">
+            <div className="flex bg-slate-50">
                 <Sidebar>
                     {routes.map((route) => {
                         if (route.children) {

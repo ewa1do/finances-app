@@ -1,10 +1,7 @@
 import React from "react";
+import "./sidebar.css";
 
-interface Props {
-    children: React.ReactNode;
-}
-
-export default function Sidebar({ children }: Props) {
+export default function Sidebar({ children }: { children: React.ReactNode }) {
     return (
         <div className="drawer drawer-open max-w-xs">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
