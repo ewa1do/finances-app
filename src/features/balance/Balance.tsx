@@ -5,7 +5,7 @@ import PieChartComponent from "./PieChartComponent";
 export default function Balance() {
     return (
         <>
-            <section className="flex gap-x-1">
+            <section className="flex gap-x-3">
                 <Card size={Sizes.extra_small} title="Ingresos" titleColor="text-[#229961]">
                     <span className="text-8xl text-[#229961] ">757</span>
                 </Card>
