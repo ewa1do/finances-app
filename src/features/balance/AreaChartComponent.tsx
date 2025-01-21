@@ -59,8 +59,6 @@ const areaData = [
 export default function AreaChartComponent() {
     return (
         <>
-            <h3>Ventas semanales vs gastos</h3>
-
             <AreaChart
                 width={1000}
                 height={400}
