@@ -1,4 +1,5 @@
 import AreaChartComponent from "./AreaChartComponent";
+import BarChartComponent from "./BarChartComponent";
 import PieChartComponent from "./PieChartComponent";
 
 export default function Balance() {
@@ -8,9 +9,15 @@ export default function Balance() {
                 <AreaChartComponent />
             </Card>
 
-            <Card title="Clasificacion de gastos" size={Sizes.small}>
-                <PieChartComponent />
-            </Card>
+            <section className="flex gap-x-3">
+                <Card title="Clasificacion de gastos" size={Sizes.small}>
+                    <PieChartComponent />
+                </Card>
+
+                <Card title="Comparacion de precio de proveedores" size={Sizes.small}>
+                    <BarChartComponent />
+                </Card>
+            </section>
         </>
     );
 }
