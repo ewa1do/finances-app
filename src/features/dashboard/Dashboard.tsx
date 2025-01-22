@@ -5,7 +5,7 @@ export default function Dashboard() {
     return (
         <>
             <section>
-                <div className="mb-10 text-3xl">Bienvenido, Jesus</div>
+                <div className="mb-10 text-2xl my-6">Bienvenido, Jesus</div>
             </section>
             <section className="flex gap-x-3">
                 <Card size={Sizes.extra_small} title="Ingresos" titleColor="text-[#229961]">
