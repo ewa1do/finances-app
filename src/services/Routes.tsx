@@ -1,6 +1,7 @@
 import Balance from "../features/balance/Balance";
 import Credit from "../features/credit/Credit";
 import Dashboard from "../features/dashboard/Dashboard";
+import Expenses from "../features/ledger/Expenses";
 import Ledger from "../features/ledger/Ledger";
 import { IRoute } from "../models/IRoute";
 
@@ -8,6 +9,7 @@ export const routes: IRoute[] = [
     { path: "/", element: <Dashboard />, title: "Inicio" },
     { path: "/balance", element: <Balance />, title: "Balance" },
     { path: "/credit", element: <Credit />, title: "Abonos" },
+    { path: "/contacts", element: <div>Contactos</div>, title: "Contactos" },
     {
         path: "/ledger",
         element: <Ledger />,
@@ -20,7 +22,7 @@ export const routes: IRoute[] = [
             },
             {
                 path: "gastos",
-                element: <div>Gastos</div>,
+                element: <Expenses />,
                 title: "Gastos",
             },
             {
