@@ -4,7 +4,7 @@ export default function Table({ header, body }: { header: string[]; body: IExpen
     return (
         <div className="overflow-x-auto">
             <table className="table table-zebra">
-                <thead>
+                <thead className="bg-base-300">
                     <tr>
                         {header.map((value) => (
                             <th key={value}>{value}</th>
