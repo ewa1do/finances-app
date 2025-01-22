@@ -1,4 +1,4 @@
-export default function Alert() {
+export function Alert() {
     return (
         <div role="alert" className="alert shadow-md">
             {/* <svg

@@ -4,7 +4,7 @@ enum Sizes {
     full = "w-full",
 }
 
-export default function Card({
+export function Card({
     title,
     size = Sizes.full,
     titleColor,
