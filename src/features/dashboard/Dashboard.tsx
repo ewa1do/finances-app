@@ -1,4 +1,4 @@
-import { Sizes } from "../../models/ESizes";
+import { Sizes } from "../../models/";
 import { Alert, Card } from "../../ui/";
 
 export default function Dashboard() {

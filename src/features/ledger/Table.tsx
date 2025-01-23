@@ -1,6 +1,6 @@
-import { IExpenseResponse } from "../../models/IExpenseResponse";
+import { BodyValidResponse } from "../../models";
 
-export default function Table({ header, body }: { header: string[]; body: IExpenseResponse[] }) {
+export default function Table({ header, body }: { header: string[]; body: BodyValidResponse[] }) {
     return (
         <div className="overflow-x-auto">
             <table className="table table-zebra">

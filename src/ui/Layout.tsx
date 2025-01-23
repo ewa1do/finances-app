@@ -1,5 +1,5 @@
 import { NavLink, Outlet, Route, Routes, useLocation } from "react-router";
-import { IRoute } from "../models/IRoute";
+import { IRoute } from "../models";
 import Navbar from "./NavBar";
 import Sidebar from "./Sidebar";
 

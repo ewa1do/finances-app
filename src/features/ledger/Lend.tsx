@@ -1,4 +1,4 @@
-import { IExpenseResponse } from "../../models/IExpenseResponse";
+import { IExpenseResponse } from "../../models";
 import { CaretButton, PlusButton } from "../../ui/Buttons/";
 import { SearchBar } from "../../ui/SearchBar";
 import { getDate } from "../../utils/getDate";

@@ -7,7 +7,8 @@ import { IRoute } from "./interfaces/IRoute";
 
 import { AtoZ } from "./types/AtoZ";
 import { Sizes } from "./types/ESizes";
+import { BodyValidResponse } from "./types/TableBody";
 
-export type { Contact, IExpenseResponse, IRoute, AtoZ };
+export type { Contact, IExpenseResponse, IRoute, AtoZ, BodyValidResponse };
 
 export { Sizes };
