@@ -3,7 +3,7 @@ import { AtoZ, Contact } from "../models/";
 
 type FakeContact = Record<AtoZ, Contact[]>;
 
-export function generateFakeContacts() {
+export function generateFakeContacts(): Contact[] {
     const fakeContacts: FakeContact = {} as FakeContact;
 
     for (let i = 0; i < 50; i++) {
@@ -11,6 +11,7 @@ export function generateFakeContacts() {
             fullName: faker.person.fullName(),
             email: faker.internet.email(),
             phoneNumber: faker.phone.number(),
+            uuid: faker.string.uuid(),
         };
 
         const letterIdx = person.fullName[0].toLowerCase() as AtoZ;
@@ -22,5 +23,6 @@ export function generateFakeContacts() {
         }
     }
 
-    return Object.entries(fakeContacts).sort();
+    return fakeContacts;
+    // return Object.entries(fakeContacts).sort();
 }
