@@ -10,8 +10,10 @@ import { useEffect, useState } from "react";
 import { Contact as IContact } from "../../models";
 import { generateFakeContacts } from "../../utils/generateFakeContacts";
 
+// TODO: Change state for context
+
 export default function Contacts() {
-    const [fakeContacts, setFakeContacts] = useState<IContact[]>([] as IContact[]);
+    const [contactList, setContactList] = useState<IContact[]>([] as IContact[]);
     const [activeContact, setActiveContact] = useState<IContact>();
 
     function onActive(contact: IContact) {
@@ -21,38 +23,95 @@ export default function Contacts() {
     useEffect(() => {
         const contacts = Object.entries(generateFakeContacts()).sort();
 
-        setFakeContacts(contacts);
+        const firstContactInList = contacts[0][1][0];
+
+        setContactList(contacts);
+        setActiveContact(firstContactInList);
     }, []);
+
+    const contactsLength = contactList.flat(2).filter((value) => typeof value === "object").length;
 
     return (
         <div className="mt-7">
             <h3 className="text-2xl">
-                Contacts <span className="text-gray-400">4</span>
+                Contactos <span className="text-gray-400">{contactsLength}</span>
             </h3>
             <section className="flex justify-evenly gap-5">
                 <Card>
-                    <ul>
-                        {fakeContacts.map(([letter, contacts]) => {
-                            return (
-                                <li className="p-3">
-                                    <span>{letter.toUpperCase()}</span>
-
-                                    {contacts.map((contact) => (
-                                        <Contact
-                                            contact={contact}
-                                            onActive={onActive}
-                                            isActive={contact.uuid === activeContact?.uuid}
-                                        />
-                                    ))}
-                                </li>
-                            );
-                        })}
-                    </ul>
+                    <ContactList contactList={contactList} onActive={onActive} />
                 </Card>
-                <Card></Card>
+                <Card>
+                    <ExpandedContact activeContact={activeContact} />
+                </Card>
                 <Card></Card>
             </section>
         </div>
+    );
+}
+
+function ExpandedContact({ activeContact }: { activeContact: IContact }) {
+    return (
+        <section>
+            <div className="bg-gray-800 rounded-xl p-4 mt-4 ml-3 shadow-xl flex flex-col ">
+                <div className="flex mb-7">
+                    <img src={activeContact?.avatar} className="max-w-20 max-h-20 rounded-full" />
+                    <div className="flex flex-col justify-center pl-4">
+                        <h3 className="text-xl">{activeContact?.fullName}</h3>
+                        <span className="capitalize opacity-75 py-1">{activeContact?.bio}</span>
+                        <span
+                            className={`text-xs w-fit p-1 ${
+                                activeContact?.tags.includes("Cliente")
+                                    ? "bg-purple-300"
+                                    : "bg-teal-300"
+                            }  opacity-90 rounded-2xl`}
+                        >
+                            <h6
+                                className={`${
+                                    activeContact?.tags.includes("Cliente")
+                                        ? "text-purple-900"
+                                        : "text-teal-900"
+                                }`}
+                            >
+                                {activeContact?.tags}
+                            </h6>
+                        </span>
+                    </div>
+                </div>
+                <button className="border p-2 w-10/12 btn btn-neutral self-center">
+                    Ver Abonos
+                </button>
+            </div>
+        </section>
+    );
+}
+
+function ContactList({
+    contactList,
+    onActive,
+    activeContact,
+}: {
+    contactList: IContact[];
+    onActive: () => void;
+    activeContact: IContact;
+}) {
+    return (
+        <ul>
+            {contactList.map(([letter, contacts]) => {
+                return (
+                    <li className="p-3">
+                        <span>{letter.toUpperCase()}</span>
+
+                        {contacts.map((contact) => (
+                            <Contact
+                                contact={contact}
+                                onActive={onActive}
+                                isActive={contact.uuid === activeContact?.uuid}
+                            />
+                        ))}
+                    </li>
+                );
+            })}
+        </ul>
     );
 }
 
@@ -78,7 +137,7 @@ function Contact({
             className={`${isActive ? "border-2" : ""} flex justify-between p-2 cursor-pointer`}
             onClick={() => onActive(contact)}
         >
-            <h5 className="text-lg">{contact.fullName}</h5>
+            <h5 className="text-md">{contact.fullName}</h5>
             <i className="">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

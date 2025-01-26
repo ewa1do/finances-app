@@ -12,6 +12,9 @@ export function generateFakeContacts(): Contact[] {
             email: faker.internet.email(),
             phoneNumber: faker.phone.number(),
             uuid: faker.string.uuid(),
+            avatar: faker.image.avatar(),
+            bio: faker.person.bio(),
+            tags: ["Proveedor", "Cliente"][Math.round(Math.random())],
         };
 
         const letterIdx = person.fullName[0].toLowerCase() as AtoZ;

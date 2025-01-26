@@ -3,4 +3,7 @@ export interface Contact {
     email: string;
     phoneNumber: string;
     uuid: string;
+    avatar: string;
+    bio: string;
+    tags: string;
 }
