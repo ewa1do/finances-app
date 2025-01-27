@@ -43,16 +43,53 @@ export default function Contacts() {
                 <Card>
                     <ExpandedContact activeContact={activeContact} />
                 </Card>
-                <Card></Card>
+                <Card>
+                    <h3 className="text-2xl p-4">Historial de Abonos</h3>
+
+                    <div className="flex flex-col mb-5">
+                        <span className="ml-2 mb-3 opacity-80">24/05/2024</span>
+
+                        <div className="bg-gray-800 rounded-xl p-2 ml-3 mb-2">
+                            Abono enviado por 300$
+                        </div>
+                        <div className="bg-gray-800 rounded-xl p-2 ml-3">
+                            Abono enviado por 300$
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col mb-5">
+                        <span className="ml-2 mb-3 opacity-80">24/05/2024</span>
+
+                        <div className="bg-gray-800 rounded-xl p-2 ml-3 mb-2">
+                            Abono enviado por 300$
+                        </div>
+                        <div className="bg-gray-800 rounded-xl p-2 ml-3">
+                            Abono enviado por 300$
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col mb-5">
+                        <span className="ml-2 mb-3 opacity-80">24/05/2024</span>
+
+                        <div className="bg-gray-800 rounded-xl p-2 ml-3 mb-2">
+                            Abono enviado por 300$
+                        </div>
+                        <div className="bg-gray-800 rounded-xl p-2 ml-3">
+                            Abono enviado por 300$
+                        </div>
+                    </div>
+                </Card>
             </section>
         </div>
     );
 }
 
 function ExpandedContact({ activeContact }: { activeContact: IContact }) {
+    const divClass = "bg-gray-800 rounded-xl p-4 mt-4 ml-3 shadow-xl";
+
     return (
         <section>
-            <div className="bg-gray-800 rounded-xl p-4 mt-4 ml-3 shadow-xl flex flex-col ">
+            <div className={`flex flex-col ${divClass}`}>
                 <div className="flex mb-7">
                     <img src={activeContact?.avatar} className="max-w-20 max-h-20 rounded-full" />
                     <div className="flex flex-col justify-center pl-4">
@@ -81,9 +118,21 @@ function ExpandedContact({ activeContact }: { activeContact: IContact }) {
                     Ver Abonos
                 </button>
             </div>
+
+            <div className={`${divClass}`}>
+                <h5 className="opacity-80 text-md">Telefono</h5>
+                <span>{activeContact?.phoneNumber}</span>
+            </div>
+
+            <div className={`${divClass}`}>
+                <h5 className="opacity-80 text-md">Email</h5>
+                <span>{activeContact?.email}</span>
+            </div>
         </section>
     );
 }
+
+// TODO: Make searchbar and filters for contact list
 
 function ContactList({
     contactList,
@@ -105,7 +154,7 @@ function ContactList({
                             <Contact
                                 contact={contact}
                                 onActive={onActive}
-                                isActive={contact.uuid === activeContact?.uuid}
+                                isActive={contact?.uuid === activeContact?.uuid}
                             />
                         ))}
                     </li>
@@ -117,7 +166,7 @@ function ContactList({
 
 function Card({ children }: { children?: React.ReactNode }) {
     return (
-        <div className="card bg-neutral text-neutral-content w-1/3 h-screen  overflow-scroll">
+        <div className="card bg-neutral text-neutral-content w-1/3 h-screen overflow-scroll">
             {children}
         </div>
     );
@@ -132,9 +181,11 @@ function Contact({
     onActive: (contact: IContact) => void;
     isActive: boolean;
 }) {
+    console.log(isActive);
+
     return (
         <div
-            className={`${isActive ? "border-2" : ""} flex justify-between p-2 cursor-pointer`}
+            className={`flex justify-between p-2 cursor-pointer ${isActive ? "border-2" : ""}`}
             onClick={() => onActive(contact)}
         >
             <h5 className="text-md">{contact.fullName}</h5>
