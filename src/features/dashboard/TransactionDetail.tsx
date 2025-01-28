@@ -10,14 +10,14 @@ interface ITransaction {
 export function TransactionDetail({ title, value, transactionType, border = true }: ITransaction) {
     return (
         <div
-            className={`flex flex-col mt-4 mb-8 ${
+            className={`flex flex-col mt-4 pb-3 ${
                 transactionType === "income" ? "md:bg-green-100" : "md:bg-red-100"
             } md:rounded-lg md:w-4/12 md:h-40`}
         >
             <div
-                className={`flex justify-between mb-5 pb-3 ${
+                className={`flex justify-between items-center ${
                     transactionType === "income" ? "md:bg-green-200" : "md:bg-red-200"
-                } md:py-2 md:px-2 md:rounded-lg ${border && "border-b-2 md:border-none"}`}
+                } md:py-2 md:px-2 md:rounded-lg ${border && "border-b-2 pb-3 md:border-none"}`}
             >
                 <div className="hidden md:flex flex-col ml-4">
                     <i>
@@ -29,11 +29,11 @@ export function TransactionDetail({ title, value, transactionType, border = true
                     </i>
                     <h4 className="opacity-80 text-base font-semibold">{title}</h4>
                 </div>
-                <i>
+                <i className="hidden md:flex">
                     <Ellipsis />
                 </i>
                 <h4 className="text-lg opacity-80 md:hidden">{title}</h4>
-                <div className="flex md:hidden items-center">
+                <div className="flex items-baseline md:hidden">
                     <span className="text-4xl md:text-3xl text-center mt-5">${value}</span>
 
                     <i className="md:hidden">

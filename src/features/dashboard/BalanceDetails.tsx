@@ -13,14 +13,14 @@ export function BalanceDetails({ value }: { value: string }) {
                 </div>
 
                 {/* Icon Ellipsis */}
-                <i>
+                <i className="hidden md:flex">
                     <Ellipsis />
                 </i>
 
                 <h4 className="opacity-80 text-lg md:hidden">Balance</h4>
                 <button className="block md:hidden">Enero</button>
             </div>
-            <span className="text-4xl md:text-3xl text-center mt-5">${value}</span>
+            <span className="text-4xl md:text-3xl md:text-center mt-5">${value}</span>
         </div>
     );
 }
