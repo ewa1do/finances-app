@@ -13,7 +13,7 @@ export default function Layout({ routes }: Props) {
     const isRouteNested = pathname.split("/").filter((el) => el !== "").length > 1;
 
     return (
-        <div className="flex flex-col p-3">
+        <div className="flex flex-col md:p-3">
             <Navbar />
 
             <div className="flex bg-slate-50">
@@ -44,7 +44,7 @@ export default function Layout({ routes }: Props) {
                     })}
                 </Sidebar>
 
-                <div className="px-3 w-11/12">
+                <div className="px-3 w-11/12 md:w-full">
                     <div className="">
                         <Routes>
                             {routes.map((route) => {
