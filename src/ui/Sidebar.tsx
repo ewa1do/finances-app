@@ -3,7 +3,7 @@ import "./sidebar.css";
 
 export default function Sidebar({ children }: { children: React.ReactNode }) {
     return (
-        <div className="drawer drawer-open max-w-xs">
+        <div className="hidden lg:block drawer drawer-open max-w-xs">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-side">
                 <label
